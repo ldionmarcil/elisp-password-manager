@@ -1,3 +1,5 @@
+(require 'cl)
+
 (defun password-manager ()
   (interactive)
   (with-temp-buffer
