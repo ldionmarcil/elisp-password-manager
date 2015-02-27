@@ -27,3 +27,16 @@ Hard-coded columns for now where 1 is entity, 3 password."
       (cdr (car (cl-remove-if-not
 		 '(lambda (a) (string= (car a) choice)) passwords))))))
 
+(defvar password-manager-file "~/.emacs.d/keyring.org.gpg"
+  "Default password-manager file.")
+
+(defconst password-manager-version-string "Version 1.0"
+  "Version string")
+
+(defun password-manager-version ()
+  (interactive)
+  (let ((version-string
+	 (format "%s" password-manager-version-string)))
+    (message version-string)))
+
+(provide 'password-manager)
