@@ -22,7 +22,7 @@ Hard-coded columns for now where 1 is entity, 3 password."
       (add-to-list 'passwords (cons (chomp (org-table-get-field 1))
 				    (chomp (org-table-get-field 3)))))
     (let ((choice (ido-completing-read "Which entity? "
-				       (loop for (key . value) in foobar
+				       (loop for (key . value) in passwords
 					     collect key))))
       (cdr (car (cl-remove-if-not
 		 '(lambda (a) (string= (car a) choice)) passwords))))))
