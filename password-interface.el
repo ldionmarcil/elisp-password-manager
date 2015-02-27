@@ -1,3 +1,13 @@
+(defun password-manager ()
+  (interactive)
+  (with-temp-buffer
+    (insert (with-temp-buffer
+	      (insert-file password-manager-file)
+	      (get-password)))
+    (beginning-of-line)
+    (kill-region (point-min) (point-max)))
+  (message "Password content yanked to clipboard!"))
+
 (defun get-password ()
   "Grabs password from entity query.
 Assumes point is at the begining of the org-mode table.
