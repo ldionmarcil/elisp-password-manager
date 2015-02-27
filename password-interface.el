@@ -18,7 +18,7 @@ Hard-coded columns for now where 1 is entity, 3 password."
     (while (< (line-number-at-pos (point))
 	      (line-number-at-pos (marker-position
 				   (org-table-end))))
-      (next-line)
+      (forward-line)
       (add-to-list 'passwords (cons (chomp (org-table-get-field 1))
 				    (chomp (org-table-get-field 3)))))
     (let ((choice (ido-completing-read "Which entity? "
