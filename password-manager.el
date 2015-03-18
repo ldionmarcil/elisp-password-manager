@@ -11,6 +11,13 @@
     (kill-region (point-min) (point-max)))
   (message "Password content yanked to clipboard!"))
 
+(defun chomp (str)
+  "Chomp leading and tailing whitespace from STR."
+  (replace-regexp-in-string (rx (or (: bos (* (any " \t\n")))
+                                    (: (* (any " \t\n")) eos)))
+                            ""
+                            str))
+
 (defun get-password ()
   "Grabs password from entity query.
 Assumes point is at the begining of the org-mode table.
